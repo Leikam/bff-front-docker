@@ -1,0 +1,18 @@
+services:
+  bff:
+    build: ./bff
+    container_name: bff-api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./bff:/app
+  frontend:
+    build: ./front
+    container_name: vue-app
+    ports:
+      - "80:3000"
+    volumes:
+      - ./front:/app
+      - /app/node_modules # убираем модули из монтирования (мак и линкус могут иметь разный наборы библиотек)
+    stdin_open: true
+    tty: true

@@ -1,0 +1,20 @@
+{
+  "name": "bff",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Test server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -L server.js",
+    "docker:build": "docker build -t leikam/bff:v0.0.1 .",
+    "docker:run": "docker run --name image-leikam-bff-v0.0.1 -p 3000:3000 --rm -d leikam/bff:v0.0.1",
+    "docker:push": "docker push leikam/bff:v0.0.1 ."
+  },
+  "author": "Dmitrii Liapunov",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "~2.8.5",
+    "express": "~5.1.0"
+  }
+}
